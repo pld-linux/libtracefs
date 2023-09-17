@@ -1,7 +1,7 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# static library
 %bcond_without	apidocs		# asciidoc documentation
+%bcond_without	static_libs	# static library
 #
 Summary:	Library for accessing ftrace file system
 Summary(pl.UTF-8):	Biblioteka dostępu do systemu plików ftrace
@@ -52,16 +52,16 @@ Static libtracefs library.
 Statyczna biblioteka libtracefs.
 
 %package apidocs
-Summary:	API documentation in HTML format
-Summary(pl.UTF-8):	Dokumentacja API biblioteki HTML
+Summary:	API documentation for libtracefs in HTML format
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libtracefs w formacie HTML
 Group:		Documentation
 BuildArch:	noarch
 
 %description apidocs
-API documentation in HTML format.
+API documentation for libtracefs in HTML format.
 
 %description apidocs -l pl.UTF-8
-Dokumentacja API biblioteki HTML.
+Dokumentacja API biblioteki libtracefs w formacie HTML.
 
 %prep
 %setup -q
