@@ -21,10 +21,10 @@ Requires:	libtraceevent >= 1.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Linux kernel trace event library.
+Library for accessing ftrace file system.
 
 %description -l pl.UTF-8
-Biblioteka do śledzenia zdarzeń jądra Linuksa.
+Biblioteka dostępu do systemu plików ftrace.
 
 %package devel
 Summary:	Header files for libtracefs library
