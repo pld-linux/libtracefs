@@ -6,18 +6,18 @@
 Summary:	Library for accessing ftrace file system
 Summary(pl.UTF-8):	Biblioteka dostępu do systemu plików ftrace
 Name:		libtracefs
-Version:	1.7.0
+Version:	1.8.1
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/%{name}-%{version}.tar.gz
-# Source0-md5:	f425ce100c05de04aa1c72b487507214
+# Source0-md5:	ebaad0eddfcdc7934f7f39cb4f36e81c
 URL:		https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git
 %{?with_apidocs:BuildRequires:	asciidoc}
-BuildRequires:	libtraceevent-devel >= 1.3
+BuildRequires:	libtraceevent-devel >= 1.8.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
-Requires:	libtraceevent >= 1.3
+Requires:	libtraceevent >= 1.8.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +31,7 @@ Summary:	Header files for libtracefs library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libtracefs
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libtraceevent-devel >= 1.3
+Requires:	libtraceevent-devel >= 1.8.1
 
 %description devel
 Header files for libtracefs library.
