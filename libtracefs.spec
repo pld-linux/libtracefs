@@ -6,12 +6,12 @@
 Summary:	Library for accessing ftrace file system
 Summary(pl.UTF-8):	Biblioteka dostępu do systemu plików ftrace
 Name:		libtracefs
-Version:	1.8.1
+Version:	1.8.3
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/%{name}-%{version}.tar.gz
-# Source0-md5:	ebaad0eddfcdc7934f7f39cb4f36e81c
+# Source0-md5:	00145a040c9134e47fea1d7ebfd103b5
 URL:		https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git
 %{?with_apidocs:BuildRequires:	asciidoc}
 BuildRequires:	libtraceevent-devel >= 1.8.1
@@ -95,6 +95,8 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with apidocs}
 # not installed sample
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/sqlhist.1
+# some completion functions, but not registered for any command
+%{__rm} $RPM_BUILD_ROOT%{bash_compdir}/tracefs_sql.bash
 %endif
 
 %clean
@@ -106,12 +108,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%attr(755,root,root) %{_libdir}/libtracefs.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtracefs.so.1
+%{_libdir}/libtracefs.so.*.*.*
+%ghost %{_libdir}/libtracefs.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libtracefs.so
+%{_libdir}/libtracefs.so
 %{_includedir}/tracefs
 %{_pkgconfigdir}/libtracefs.pc
 %if %{with apidocs}
