@@ -76,8 +76,10 @@ LDFLAGS="%{rpmldflags}" \
 	prefix=%{_prefix} \
 	libdir_relative=%{_lib}
 
+%if %{with apidocs}
 %{__make} doc \
 	V=1
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -88,16 +90,16 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	VERBOSE=1
 
+%if %{with apidocs}
 %{__make} install_doc \
 	prefix=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%if %{with apidocs}
 # not installed sample
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man1/sqlhist.1
+%endif
 # some completion functions, but not registered for any command
 %{__rm} $RPM_BUILD_ROOT%{bash_compdir}/tracefs_sql.bash
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
